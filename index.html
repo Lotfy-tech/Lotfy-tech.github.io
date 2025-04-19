@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج شراء الكتب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #075e54;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .radio-group:hover {
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #075e54;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #128c7e;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>نموذج طلب الكتب</h1>
+        <form id="bookForm">
+            <div class="input-group">
+                <label for="name">اسمك:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <h3>الكتب المتاحة:</h3>
+            
+            <div class="radio-group">
+                <input type="radio" id="book1" name="book" value="كتاب التشريح">
+                <label for="book1">كتاب التشريح</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book2" name="book" value="كتاب الفسيولوجيا">
+                <label for="book2">كتاب الفسيولوجيا</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book3" name="book" value="كتاب الكيمياء الحيوية">
+                <label for="book3">كتاب الكيمياء الحيوية</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book4" name="book" value="كتاب الأحياء الدقيقة">
+                <label for="book4">كتاب الأحياء الدقيقة</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book5" name="book" value="كتاب الأدوية">
+                <label for="book5">كتاب الأدوية</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book6" name="book" value="كتاب الأمراض">
+                <label for="book6">كتاب الأمراض</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book7" name="book" value="كتاب الجراحة">
+                <label for="book7">كتاب الجراحة</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book8" name="book" value="كتاب الأطفال">
+                <label for="book8">كتاب الأطفال</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book9" name="book" value="كتاب النساء والتوليد">
+                <label for="book9">كتاب النساء والتوليد</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book10" name="book" value="كتاب الطب الباطني">
+                <label for="book10">كتاب الطب الباطني</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book11" name="book" value="كتاب الطب الشرعي">
+                <label for="book11">كتاب الطب الشرعي</label>
+            </div>
+            
+            <div class="radio-group">
+                <input type="radio" id="book12" name="book" value="كتاب الصحة العامة">
+                <label for="book12">كتاب الصحة العامة</label>
+            </div>
+            
+            <button type="submit">إرسال</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bookForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const books = [
+                { id: "book1", name: "كتاب التشريح" },
+                { id: "book2", name: "كتاب الفسيولوجيا" },
+                { id: "book3", name: "كتاب الكيمياء الحيوية" },
+                { id: "book4", name: "كتاب الأحياء الدقيقة" },
+                { id: "book5", name: "كتاب الأدوية" },
+                { id: "book6", name: "كتاب الأمراض" },
+                { id: "book7", name: "كتاب الجراحة" },
+                { id: "book8", name: "كتاب الأطفال" },
+                { id: "book9", name: "كتاب النساء والتوليد" },
+                { id: "book10", name: "كتاب الطب الباطني" },
+                { id: "book11", name: "كتاب الطب الشرعي" },
+                { id: "book12", name: "كتاب الصحة العامة" }
+            ];
+            
+            let message = `اسمي: ${name}%0D%0A%0D%0Aحالة الكتب:%0D%0A`;
+            
+            books.forEach(book => {
+                const isChecked = document.getElementById(book.id).checked;
+                const status = isChecked ? "تم الشراء" : "لم يتم الشراء بعد";
+                message += `${book.name}: ${status}%0D%0A`;
+            });
+            
+            const whatsappUrl = `https://wa.me/201157269183?text=${message}`;
+            window.location.href = whatsappUrl;
+        });
+    </script>
+</body>
+</html>
