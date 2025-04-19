@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Maths 2025</title>
+    <title>Maths 2025</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,73 +69,73 @@
 </head>
 <body>
     <div class="form-container">
-  <h1>كشف الكتب</h1>
+        <title>كشف الكتب</title>
         <form id="bookForm">
             <div class="input-group">
                 <label for="name">اسمك:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             
-            <h3>الكتب المتاحة (يمكن اختيار أكثر من كتاب):</h3>
+            <h3>المواد المتاحة (يمكن اختيار أكثر من مادة):</h3>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book1" name="books" value="كتاب التشريح">
-                <label for="book1">كتاب التشريح</label>
+                <input type="checkbox" id="subject1" name="subjects" value="فلسفه وتاريخ الرياضيات">
+                <label for="subject1">فلسفه وتاريخ الرياضيات</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book2" name="books" value="كتاب الفسيولوجيا">
-                <label for="book2">كتاب الفسيولوجيا</label>
+                <input type="checkbox" id="subject2" name="subjects" value="حسبان 2">
+                <label for="subject2">حسبان 2</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book3" name="books" value="كتاب الكيمياء الحيوية">
-                <label for="book3">كتاب الكيمياء الحيوية</label>
+                <input type="checkbox" id="subject3" name="subjects" value="هندسه تحليليه 2">
+                <label for="subject3">هندسه تحليليه 2</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book4" name="books" value="كتاب الأحياء الدقيقة">
-                <label for="book4">كتاب الأحياء الدقيقة</label>
+                <input type="checkbox" id="subject4" name="subjects" value="ديناميكا">
+                <label for="subject4">ديناميكا</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book5" name="books" value="كتاب الأدوية">
-                <label for="book5">كتاب الأدوية</label>
+                <input type="checkbox" id="subject5" name="subjects" value="كيمياء فيزيائية">
+                <label for="subject5">كيمياء فيزيائية</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book6" name="books" value="كتاب الأمراض">
-                <label for="book6">كتاب الأمراض</label>
+                <input type="checkbox" id="subject6" name="subjects" value="كهربائية ومغناطيسيه وتيار متردد">
+                <label for="subject6">كهربائية ومغناطيسيه وتيار متردد</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book7" name="books" value="كتاب الجراحة">
-                <label for="book7">كتاب الجراحة</label>
+                <input type="checkbox" id="subject7" name="subjects" value="احصاء">
+                <label for="subject7">احصاء</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book8" name="books" value="كتاب الأطفال">
-                <label for="book8">كتاب الأطفال</label>
+                <input type="checkbox" id="subject8" name="subjects" value="استراتيجيات التعلم النشط">
+                <label for="subject8">استراتيجيات التعلم النشط</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book9" name="books" value="كتاب النساء والتوليد">
-                <label for="book9">كتاب النساء والتوليد</label>
+                <input type="checkbox" id="subject9" name="subjects" value="اللغه الانجليزية">
+                <label for="subject9">اللغه الانجليزية</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book10" name="books" value="كتاب الطب الباطني">
-                <label for="book10">كتاب الطب الباطني</label>
+                <input type="checkbox" id="subject10" name="subjects" value="سيكولوجيه التعلم">
+                <label for="subject10">سيكولوجيه التعلم</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book11" name="books" value="كتاب الطب الشرعي">
-                <label for="book11">كتاب الطب الشرعي</label>
+                <input type="checkbox" id="subject11" name="subjects" value="تربية قضايا العصر">
+                <label for="subject11">تربية قضايا العصر</label>
             </div>
             
             <div class="checkbox-group">
-                <input type="checkbox" id="book12" name="books" value="كتاب الصحة العامة">
-                <label for="book12">كتاب الصحة العامة</label>
+                <input type="checkbox" id="subject12" name="subjects" value="سيكشن التدريس المصغر (1)">
+                <label for="subject12">سيكشن التدريس المصغر (1)</label>
             </div>
             
             <button type="submit">إرسال</button>
@@ -147,43 +147,43 @@
             e.preventDefault();
             
             const name = document.getElementById('name').value;
-            const books = [
-                { id: "book1", name: "كتاب التشريح" },
-                { id: "book2", name: "كتاب الفسيولوجيا" },
-                { id: "book3", name: "كتاب الكيمياء الحيوية" },
-                { id: "book4", name: "كتاب الأحياء الدقيقة" },
-                { id: "book5", name: "كتاب الأدوية" },
-                { id: "book6", name: "كتاب الأمراض" },
-                { id: "book7", name: "كتاب الجراحة" },
-                { id: "book8", name: "كتاب الأطفال" },
-                { id: "book9", name: "كتاب النساء والتوليد" },
-                { id: "book10", name: "كتاب الطب الباطني" },
-                { id: "book11", name: "كتاب الطب الشرعي" },
-                { id: "book12", name: "كتاب الصحة العامة" }
+            const subjects = [
+                { id: "subject1", name: "فلسفه وتاريخ الرياضيات" },
+                { id: "subject2", name: "حسبان 2" },
+                { id: "subject3", name: "هندسه تحليليه 2" },
+                { id: "subject4", name: "ديناميكا" },
+                { id: "subject5", name: "كيمياء فيزيائية" },
+                { id: "subject6", name: "كهربائية ومغناطيسيه وتيار متردد" },
+                { id: "subject7", name: "احصاء" },
+                { id: "subject8", name: "استراتيجيات التعلم النشط" },
+                { id: "subject9", name: "اللغه الانجليزية" },
+                { id: "subject10", name: "سيكولوجيه التعلم" },
+                { id: "subject11", name: "تربية قضايا العصر" },
+                { id: "subject12", name: "سيكشن التدريس المصغر (1)" },
             ];
             
-            let message = `اسمي: ${name}%0D%0A%0D%0Aحالة الكتب:%0D%0A`;
+            let message = `اسم الطالب: ${name}%0D%0A%0D%0Aحالة المواد:%0D%0A`;
             
-            // Get all selected books
-            const selectedBooks = [];
-            books.forEach(book => {
-                if (document.getElementById(book.id).checked) {
-                    selectedBooks.push(book.name);
+            // Get all selected subjects
+            const selectedSubjects = [];
+            subjects.forEach(subject => {
+                if (document.getElementById(subject.id).checked) {
+                    selectedSubjects.push(subject.name);
                 }
             });
             
-            // List all books with their status
-            books.forEach(book => {
-                const isSelected = document.getElementById(book.id).checked;
-                const status = isSelected ? "تم الشراء" : "لم يتم الشراء بعد";
-                message += `${book.name}: ${status}%0D%0A`;
+            // List all subjects with their status
+            subjects.forEach(subject => {
+                const isSelected = document.getElementById(subject.id).checked;
+                const status = isSelected ? "تم التسجيل" : "لم يتم التسجيل بعد";
+                message += `${subject.name}: ${status}%0D%0A`;
             });
             
-            // Add summary of selected books
-            if (selectedBooks.length > 0) {
-                message += `%0D%0Aالكتب المطلوبة: ${selectedBooks.join('، ')}`;
+            // Add summary of selected subjects
+            if (selectedSubjects.length > 0) {
+                message += `%0D%0Aالمواد المختارة: ${selectedSubjects.join('، ')}`;
             } else {
-                message += `%0D%0Aلم يتم اختيار أي كتب`;
+                message += `%0D%0Aلم يتم اختيار أي مواد`;
             }
             
             const whatsappUrl = `https://wa.me/201157269183?text=${message}`;
