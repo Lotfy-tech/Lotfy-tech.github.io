@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نموذج شراء الكتب</title>
+ <title>Maths 2025</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,14 +37,19 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
-        .radio-group {
+        .checkbox-group {
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #eee;
             border-radius: 5px;
+            display: flex;
+            align-items: center;
         }
-        .radio-group:hover {
+        .checkbox-group:hover {
             background-color: #f9f9f9;
+        }
+        .checkbox-group input {
+            margin-left: 10px;
         }
         button {
             background-color: #075e54;
@@ -64,72 +69,72 @@
 </head>
 <body>
     <div class="form-container">
-        <h1>نموذج طلب الكتب</h1>
+  <h1>كشف الكتب</h1>
         <form id="bookForm">
             <div class="input-group">
                 <label for="name">اسمك:</label>
                 <input type="text" id="name" name="name" required>
             </div>
             
-            <h3>الكتب المتاحة:</h3>
+            <h3>الكتب المتاحة (يمكن اختيار أكثر من كتاب):</h3>
             
-            <div class="radio-group">
-                <input type="radio" id="book1" name="book" value="كتاب التشريح">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book1" name="books" value="كتاب التشريح">
                 <label for="book1">كتاب التشريح</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book2" name="book" value="كتاب الفسيولوجيا">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book2" name="books" value="كتاب الفسيولوجيا">
                 <label for="book2">كتاب الفسيولوجيا</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book3" name="book" value="كتاب الكيمياء الحيوية">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book3" name="books" value="كتاب الكيمياء الحيوية">
                 <label for="book3">كتاب الكيمياء الحيوية</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book4" name="book" value="كتاب الأحياء الدقيقة">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book4" name="books" value="كتاب الأحياء الدقيقة">
                 <label for="book4">كتاب الأحياء الدقيقة</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book5" name="book" value="كتاب الأدوية">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book5" name="books" value="كتاب الأدوية">
                 <label for="book5">كتاب الأدوية</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book6" name="book" value="كتاب الأمراض">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book6" name="books" value="كتاب الأمراض">
                 <label for="book6">كتاب الأمراض</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book7" name="book" value="كتاب الجراحة">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book7" name="books" value="كتاب الجراحة">
                 <label for="book7">كتاب الجراحة</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book8" name="book" value="كتاب الأطفال">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book8" name="books" value="كتاب الأطفال">
                 <label for="book8">كتاب الأطفال</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book9" name="book" value="كتاب النساء والتوليد">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book9" name="books" value="كتاب النساء والتوليد">
                 <label for="book9">كتاب النساء والتوليد</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book10" name="book" value="كتاب الطب الباطني">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book10" name="books" value="كتاب الطب الباطني">
                 <label for="book10">كتاب الطب الباطني</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book11" name="book" value="كتاب الطب الشرعي">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book11" name="books" value="كتاب الطب الشرعي">
                 <label for="book11">كتاب الطب الشرعي</label>
             </div>
             
-            <div class="radio-group">
-                <input type="radio" id="book12" name="book" value="كتاب الصحة العامة">
+            <div class="checkbox-group">
+                <input type="checkbox" id="book12" name="books" value="كتاب الصحة العامة">
                 <label for="book12">كتاب الصحة العامة</label>
             </div>
             
@@ -159,11 +164,27 @@
             
             let message = `اسمي: ${name}%0D%0A%0D%0Aحالة الكتب:%0D%0A`;
             
+            // Get all selected books
+            const selectedBooks = [];
             books.forEach(book => {
-                const isChecked = document.getElementById(book.id).checked;
-                const status = isChecked ? "تم الشراء" : "لم يتم الشراء بعد";
+                if (document.getElementById(book.id).checked) {
+                    selectedBooks.push(book.name);
+                }
+            });
+            
+            // List all books with their status
+            books.forEach(book => {
+                const isSelected = document.getElementById(book.id).checked;
+                const status = isSelected ? "تم الشراء" : "لم يتم الشراء بعد";
                 message += `${book.name}: ${status}%0D%0A`;
             });
+            
+            // Add summary of selected books
+            if (selectedBooks.length > 0) {
+                message += `%0D%0Aالكتب المطلوبة: ${selectedBooks.join('، ')}`;
+            } else {
+                message += `%0D%0Aلم يتم اختيار أي كتب`;
+            }
             
             const whatsappUrl = `https://wa.me/201157269183?text=${message}`;
             window.location.href = whatsappUrl;
