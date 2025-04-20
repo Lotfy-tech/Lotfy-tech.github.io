@@ -1,194 +1,180 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maths 2025</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .form-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #075e54;
-        }
-        .input-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-        .checkbox-group {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #eee;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-        }
-        .checkbox-group:hover {
-            background-color: #f9f9f9;
-        }
-        .checkbox-group input {
-            margin-left: 10px;
-        }
-        button {
-            background-color: #075e54;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            width: 100%;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #128c7e;
-        }
-    </style>
-</head>
-<body>
-    <div class="form-container">
-        <h1>أخر معاد تسجيل الاحد 20\4 الساعه 12 ظهراً</h1>
-        <form id="bookForm">
-            <div class="input-group">
-                <label for="name">اسمك:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            
-            <h3>المواد المتاحة (يمكن اختيار أكثر من مادة):</h3>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject1" name="subjects" value="فلسفه وتاريخ الرياضيات">
-                <label for="subject1">فلسفه وتاريخ الرياضيات</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject2" name="subjects" value="حسبان 2">
-                <label for="subject2">حسبان 2</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject3" name="subjects" value="هندسه تحليليه 2">
-                <label for="subject3">هندسه تحليليه 2</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject4" name="subjects" value="ديناميكا">
-                <label for="subject4">ديناميكا</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject5" name="subjects" value="كيمياء فيزيائية">
-                <label for="subject5">كيمياء فيزيائية</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject6" name="subjects" value="كهربائية ومغناطيسيه وتيار متردد">
-                <label for="subject6">كهربائية ومغناطيسيه وتيار متردد</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject7" name="subjects" value="احصاء">
-                <label for="subject7">احصاء</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject8" name="subjects" value="استراتيجيات التعلم النشط">
-                <label for="subject8">استراتيجيات التعلم النشط</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject9" name="subjects" value="اللغه الانجليزية">
-                <label for="subject9">اللغه الانجليزية</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject10" name="subjects" value="سيكولوجيه التعلم">
-                <label for="subject10">سيكولوجيه التعلم</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject11" name="subjects" value="تربية قضايا العصر">
-                <label for="subject11">تربية قضايا العصر</label>
-            </div>
-            
-            <div class="checkbox-group">
-                <input type="checkbox" id="subject12" name="subjects" value="سيكشن التدريس المصغر (1)">
-                <label for="subject12">سيكشن التدريس المصغر (1)</label>
-            </div>
-            
-            <button type="submit">إرسال</button>
-        </form>
-    </div>
 
-    <script>
-        document.getElementById('bookForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const subjects = [
-                { id: "subject1", name: "فلسفه وتاريخ الرياضيات" },
-                { id: "subject2", name: "حسبان 2" },
-                { id: "subject3", name: "هندسه تحليليه 2" },
-                { id: "subject4", name: "ديناميكا" },
-                { id: "subject5", name: "كيمياء فيزيائية" },
-                { id: "subject6", name: "كهربائية ومغناطيسيه وتيار متردد" },
-                { id: "subject7", name: "احصاء" },
-                { id: "subject8", name: "استراتيجيات التعلم النشط" },
-                { id: "subject9", name: "اللغه الانجليزية" },
-                { id: "subject10", name: "سيكولوجيه التعلم" },
-                { id: "subject11", name: "تربية قضايا العصر" },
-                { id: "subject12", name: "سيكشن التدريس المصغر (1)" },
-            ];
-            
-            let message = `اسم الطالب: ${name}%0D%0A%0D%0Aحالة المواد:%0D%0A`;
-            
-            // Get all selected subjects
-            const selectedSubjects = [];
-            subjects.forEach(subject => {
-                if (document.getElementById(subject.id).checked) {
-                    selectedSubjects.push(subject.name);
-                }
-            });
-            
-            // List all subjects with their status
-            subjects.forEach(subject => {
-                const isSelected = document.getElementById(subject.id).checked;
-                const status = isSelected ? "تم التسجيل" : "لم يتم التسجيل بعد";
-                message += `${subject.name}: ${status}%0D%0A`;
-            });
-            
-            // Add summary of selected subjects
-            if (selectedSubjects.length > 0) {
-                message += `%0D%0Aالمواد المختارة: ${selectedSubjects.join('، ')}`;
-            } else {
-                message += `%0D%0Aلم يتم اختيار أي مواد`;
-            }
-            
-            const whatsappUrl = `https://wa.me/201157269183?text=${message}`;
-            window.location.href = whatsappUrl;
-        });
-    </script>
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>404 - Page Not Found</title>
+
+  <style>
+
+    body {
+
+      margin: 0;
+
+      padding: 0;
+
+      font-family: 'Arial', sans-serif;
+
+      background-color: #0a0a0a;
+
+      color: #00e6ff;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+
+      flex-direction: column;
+
+    }
+
+
+
+    h1 {
+
+      font-size: 6rem;
+
+      margin: 0;
+
+      text-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff, 0 0 30px #00e6ff;
+
+      animation: glow 1.5s infinite alternate, float 3s ease-in-out infinite;
+
+    }
+
+
+
+    p {
+
+      font-size: 1.5rem;
+
+      margin: 10px 0;
+
+      text-shadow: 0 0 5px #00e6ff, 0 0 10px #00e6ff;
+
+    }
+
+
+
+    .copyright {
+
+      font-size: 1rem;
+
+      margin-top: 20px;
+
+      text-shadow: 0 0 5px #00e6ff, 0 0 10px #00e6ff;
+
+    }
+
+
+
+    .whatsapp-btn {
+
+      margin-top: 30px;
+
+      padding: 10px 20px;
+
+      font-size: 1.2rem;
+
+      color: #00e6ff;
+
+      background-color: transparent;
+
+      border: 2px solid #00e6ff;
+
+      border-radius: 5px;
+
+      text-shadow: 0 0 5px #00e6ff, 0 0 10px #00e6ff;
+
+      box-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff;
+
+      cursor: pointer;
+
+      transition: all 0.3s ease;
+
+    }
+
+
+
+    .whatsapp-btn:hover {
+
+      background-color: #00e6ff;
+
+      color: #0a0a0a;
+
+      box-shadow: 0 0 20px #00e6ff, 0 0 40px #00e6ff;
+
+    }
+
+
+
+    @keyframes glow {
+
+      0% {
+
+        text-shadow: 0 0 10px #00e6ff, 0 0 20px #00e6ff, 0 0 30px #00e6ff;
+
+      }
+
+      100% {
+
+        text-shadow: 0 0 20px #00e6ff, 0 0 40px #00e6ff, 0 0 60px #00e6ff;
+
+      }
+
+    }
+
+
+
+    @keyframes float {
+
+      0% {
+
+        transform: translateY(0);
+
+      }
+
+      50% {
+
+        transform: translateY(-20px);
+
+      }
+
+      100% {
+
+        transform: translateY(0);
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>404</h1>
+
+  <p>Oops! Page Not Found</p>
+
+  <div class="copyright">© Lotfy Waheed 2025</div>
+
+  <a href="https://wa.me/201157269183" target="_blank">
+
+    <button class="whatsapp-btn">Contact on WhatsApp</button>
+
+  </a>
+
 </body>
+
 </html>
