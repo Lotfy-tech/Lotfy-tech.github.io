@@ -169,6 +169,11 @@
             background-color: #f8d7da;
             border: 1px solid #f5c6cb;
         }
+
+        .refresh-btn {
+            background-color: #4caf50;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
@@ -224,6 +229,7 @@
         <h1>الطلبات المقدمة</h1>
         <h2 style="text-align: center;font-size: 17px;font-style: italic;">Created By &copy; Lotfy</h2>
         <button class="print-btn" onclick="window.print()">طباعة الجدول</button>
+        <button class="refresh-btn" onclick="refreshData()">تحديث البيانات</button>
         <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
         <table id="submissionsTable">
             <thead>
@@ -257,6 +263,10 @@
     </div>
 
     <script>
+
+  function refreshData() {
+            loadSubmissions();
+        }
         // Shared data key
         const DATA_KEY = 'university_exemption_system_data';
         
