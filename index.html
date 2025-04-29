@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام الإعفاء من المواد</title>
+    <title>تسجيل الامتحانات الفائته</title>
     <style>
         /* Combined CSS from both files */
         body {
@@ -118,12 +118,63 @@
                 box-shadow: none;
             }
         }
+        /* Add new styles for search modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: left;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .search-btn {
+            background-color: #9c27b0;
+            margin-left: 10px;
+            margin-bottom: 20px;
+        }
+        .search-result {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+        .found {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        .not-found {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
     </style>
 </head>
 <body>
     <!-- Login View -->
     <div class="container login-container" id="loginContainer">
-        <h1>نظام الإعفاء من المواد</h1>
+        <h1>تسجيل الامتحانات الفائته</h1>
         
         <div class="warning-message">
             <strong>تحذير:</strong> هذه الصفحة مخصصة ل الليدر او الدكتور فقط
@@ -147,6 +198,7 @@
             <strong>تنبيه :</strong> الطلاب يسجلون من هنا 
         </div>
         <h2>تقديم طلب جديد</h2>
+        <button class="search-btn" onclick="openSearchModal()">بحث عن طلبك</button>
         <form id="exemptionForm">
             <div class="form-group">
                 <label for="fullName">الأسم الثلاثي</label>
@@ -190,6 +242,20 @@
         </table>
     </div>
 
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSearchModal()">&times;</span>
+            <h2>بحث عن تسجيلك</h2>
+            <div class="form-group">
+                <label for="searchName">أدخل الأسم الثلاثي (كامل أو جزء منه)</label>
+                <input type="text" id="searchName" placeholder="ابحث باسمك هنا">
+            </div>
+            <button onclick="searchSubmission()" class="submit-btn">بحث</button>
+            <div id="searchResult" class="search-result"></div>
+        </div>
+    </div>
+
     <script>
         // Shared data key
         const DATA_KEY = 'university_exemption_system_data';
@@ -226,7 +292,7 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             
-            if(username === 'lotfy' && password === '12345') {
+            if(username === 'lotfy' && password === 'lotfy1234@2652005') {
                 document.getElementById('loginContainer').style.display = 'none';
                 document.getElementById('dashboard').style.display = 'block';
                 loadSubmissions();
@@ -277,6 +343,51 @@
             document.getElementById('loginContainer').style.display = 'block';
             document.getElementById('loginForm').reset();
             document.getElementById('errorMessage').style.display = 'none';
+        }
+        
+        // Search functionality
+        function openSearchModal() {
+            document.getElementById('searchModal').style.display = 'block';
+        }
+        
+        function closeSearchModal() {
+            document.getElementById('searchModal').style.display = 'none';
+            document.getElementById('searchResult').style.display = 'none';
+        }
+        
+        function searchSubmission() {
+            const searchTerm = document.getElementById('searchName').value.toLowerCase();
+            const submissions = JSON.parse(localStorage.getItem(DATA_KEY)) || [];
+            const resultDiv = document.getElementById('searchResult');
+            
+            if (!searchTerm) {
+                resultDiv.textContent = 'الرجاء إدخال اسم للبحث';
+                resultDiv.className = 'search-result not-found';
+                resultDiv.style.display = 'block';
+                return;
+            }
+            
+            const found = submissions.some(sub => 
+                sub.fullName.toLowerCase().includes(searchTerm)
+            );
+            
+            if (found) {
+                resultDiv.textContent = 'تم العثور على طلبك بنجاح!';
+                resultDiv.className = 'search-result found';
+            } else {
+                resultDiv.innerHTML = 'لم يتم العثور على تسجيلك. الرجاء التأكد من الاسم أو تقديم طلب جديد.<br>إذا كنت قد قدمت طلباً بالفعل، قد تحتاج التواصل مع الليدر.';
+                resultDiv.className = 'search-result not-found';
+            }
+            
+            resultDiv.style.display = 'block';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('searchModal');
+            if (event.target == modal) {
+                closeSearchModal();
+            }
         }
     </script>
 </body>
