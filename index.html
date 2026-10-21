@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hello World — 404 Error</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  /* Animated background glow */
+  body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(88, 166, 255, 0.12), transparent 40%),
+                radial-gradient(circle at 70% 70%, rgba(210, 168, 255, 0.10), transparent 40%);
+    animation: drift 18s ease-in-out infinite;
+    z-index: -1;
+  }
+  
+  @keyframes drift {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-4%, -4%) rotate(3deg); }
+  }
+  
+  /* Hello World */
+  .hello {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #58a6ff 0%, #d2a8ff 50%, #ff7b72 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  
+  .subtitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+    color: #8b949e;
+    margin-bottom: 48px;
+    animation: fadeUp 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  
+  /* 404 Error Card */
+  .error-card {
+    background: rgba(22, 27, 34, 0.85);
+    border: 1px solid #30363d;
+    border-radius: 16px;
+    padding: clamp(28px, 5vw, 48px) clamp(24px, 6vw, 64px);
+    max-width: 520px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: fadeUp 0.8s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  
+  /* Top accent line */
+  .error-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #58a6ff, #d2a8ff, #ff7b72);
+  }
+  
+  .error-code {
+    font-size: clamp(4rem, 15vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    background: linear-gradient(135deg, #ff7b72 0%, #d2a8ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+    font-variant-numeric: tabular-nums;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.75; }
+  }
+  
+  .error-title {
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: #e6edf3;
+    margin-bottom: 10px;
+  }
+  
+  .error-message {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    color: #8b949e;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  
+  .error-message code {
+    background: #21262d;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.88em;
+    color: #58a6ff;
+  }
+  
+  /* Buttons */
+  .actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: inherit;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #58a6ff 0%, #3b82f6 100%);
+    color: #0d1117;
+    box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(88, 166, 255, 0.45);
+  }
+  
+  .btn-secondary {
+    background: #21262d;
+    color: #e6edf3;
+    border-color: #30363d;
+  }
+  
+  .btn-secondary:hover {
+    background: #30363d;
+    border-color: #484f58;
+    transform: translateY(-2px);
+  }
+  
+  /* Footer hint */
+  .hint {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: #484f58;
+    animation: fadeUp 0.8s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  
+  .hint code {
+    background: #161b22;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #8b949e;
+    font-family: 'Consolas', 'Monaco', monospace;
+  }
+  
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <h1 class="hello">Hello World</h1>
+  <p class="subtitle">Welcome to your page — but something went wrong.</p>
+
+  <div class="error-card">
+    <div class="error-code">404</div>
+    <h2 class="error-title">Page Not Found</h2>
+    <p class="error-message">
+      The page you are looking for doesn't exist or has been moved.
+      Check the URL, or head back to safety.
+    </p>
+    <div class="actions">
+      <a href="/" class="btn btn-primary">🏠 Go Home</a>
+      <button class="btn btn-secondary" onclick="history.back()">← Go Back</button>
+    </div>
+  </div>
+
+  <p class="hint">
+    Error code: <code>HTTP 404</code> · Resource not found on this server
+  </p>
+
+</body>
+</html>
