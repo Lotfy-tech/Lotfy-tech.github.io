@@ -1,240 +1,417 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hello World — 404 Error</title>
+<title>Maths 2027 Files Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #0d1117;
-    color: #e6edf3;
-    text-align: center;
-    padding: 20px;
-    overflow: hidden;
-  }
-  
-  /* Animated background glow */
-  body::before {
-    content: '';
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 30% 30%, rgba(88, 166, 255, 0.12), transparent 40%),
-                radial-gradient(circle at 70% 70%, rgba(210, 168, 255, 0.10), transparent 40%);
-    animation: drift 18s ease-in-out infinite;
-    z-index: -1;
-  }
-  
-  @keyframes drift {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    50% { transform: translate(-4%, -4%) rotate(3deg); }
-  }
-  
-  /* Hello World */
-  .hello {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, #58a6ff 0%, #d2a8ff 50%, #ff7b72 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 8px;
-    animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  
-  .subtitle {
-    font-size: clamp(0.9rem, 2.5vw, 1.15rem);
-    color: #8b949e;
-    margin-bottom: 48px;
-    animation: fadeUp 0.8s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  
-  /* 404 Error Card */
-  .error-card {
-    background: rgba(22, 27, 34, 0.85);
-    border: 1px solid #30363d;
-    border-radius: 16px;
-    padding: clamp(28px, 5vw, 48px) clamp(24px, 6vw, 64px);
-    max-width: 520px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    animation: fadeUp 0.8s 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  
-  /* Top accent line */
-  .error-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #58a6ff, #d2a8ff, #ff7b72);
-  }
-  
-  .error-code {
-    font-size: clamp(4rem, 15vw, 7rem);
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -0.04em;
-    background: linear-gradient(135deg, #ff7b72 0%, #d2a8ff 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
-    font-variant-numeric: tabular-nums;
-    animation: pulse 3s ease-in-out infinite;
-  }
-  
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.75; }
-  }
-  
-  .error-title {
-    font-size: clamp(1.15rem, 3vw, 1.5rem);
-    font-weight: 700;
-    color: #e6edf3;
-    margin-bottom: 10px;
-  }
-  
-  .error-message {
-    font-size: clamp(0.85rem, 2vw, 1rem);
-    color: #8b949e;
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-  
-  .error-message code {
-    background: #21262d;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-family: 'Consolas', 'Monaco', monospace;
-    font-size: 0.88em;
-    color: #58a6ff;
-  }
-  
-  /* Buttons */
-  .actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 22px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: inherit;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 1px solid transparent;
-  }
-  
-  .btn-primary {
-    background: linear-gradient(135deg, #58a6ff 0%, #3b82f6 100%);
-    color: #0d1117;
-    box-shadow: 0 4px 16px rgba(88, 166, 255, 0.3);
-  }
-  
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 22px rgba(88, 166, 255, 0.45);
-  }
-  
-  .btn-secondary {
-    background: #21262d;
-    color: #e6edf3;
-    border-color: #30363d;
-  }
-  
-  .btn-secondary:hover {
-    background: #30363d;
-    border-color: #484f58;
-    transform: translateY(-2px);
-  }
-  
-  /* Footer hint */
-  .hint {
-    margin-top: 40px;
-    font-size: 0.78rem;
-    color: #484f58;
-    animation: fadeUp 0.8s 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-  
-  .hint code {
-    background: #161b22;
-    padding: 2px 6px;
-    border-radius: 4px;
-    color: #8b949e;
-    font-family: 'Consolas', 'Monaco', monospace;
-  }
-  
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation: none !important;
-      transition: none !important;
-    }
-  }
+:root{
+  --bg-base:#040926;--bg-surface:#0A1035;--bg-elevated:#140B3A;--bg-subtle:#251351;
+  --text-primary:#D8DBE2;--text-secondary:#A8AAB8;--text-muted:#6B6B85;
+  --primary:#A85751;--primary-hover:#C46B64;--primary-glow:rgba(168,87,81,0.30);
+  --plum:#7D2E68;--plum-glow:rgba(125,46,104,0.32);
+  --danger:#C14B4B;--danger-soft:rgba(193,75,75,0.12);
+  --success:#4CAF7D;--success-soft:rgba(76,175,125,0.15);
+  --warning:#D9A155;--warning-soft:rgba(217,161,85,0.15);
+  --info:#4C7DAF;--info-soft:rgba(76,125,175,0.15);
+  --gradient-primary:linear-gradient(135deg,#7D2E68 0%,#A85751 100%);
+  --shadow-md:0 6px 18px rgba(4,9,38,0.5);
+  --shadow-lg:0 12px 40px rgba(4,9,38,0.7);
+  --radius-md:12px;--radius-lg:18px;
+  --ease:cubic-bezier(0.22,1,0.36,1);--transition:0.22s var(--ease);
+  --font-sans:'Cairo',system-ui,sans-serif;--font-display:'Aref Ruqaa','Cairo',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{min-height:100vh;background:var(--bg-base);
+  background-image:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(125,46,104,0.15),transparent 70%),
+                   radial-gradient(ellipse 60% 40% at 80% 100%,rgba(168,87,81,0.08),transparent 70%);
+  background-attachment:fixed;color:var(--text-primary);font-family:var(--font-sans);
+  font-size:16px;line-height:1.6;padding:clamp(12px,3vw,28px);}
+.wrapper{max-width:1180px;margin:0 auto;}
+
+.page-header{text-align:center;margin-bottom:24px;padding:18px 0;}
+.page-header .badge{display:inline-flex;align-items:center;gap:6px;padding:5px 14px;margin-bottom:12px;
+  background:var(--info-soft);border:1px solid rgba(76,125,175,0.45);border-radius:999px;
+  font-size:0.78rem;font-weight:700;color:#B8D4F5;}
+.page-header h1{font-family:var(--font-display);font-size:clamp(1.7rem,5vw,2.6rem);font-weight:700;
+  background:var(--gradient-primary);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;margin-bottom:8px;line-height:1.3;direction:ltr;}
+.page-header p{color:var(--text-secondary);font-size:0.92rem;max-width:640px;margin:0 auto;}
+.page-header code{background:var(--bg-surface);padding:2px 8px;border-radius:6px;
+  direction:ltr;display:inline-block;font-size:0.82rem;color:var(--primary-hover);}
+
+.section{background:var(--bg-surface);border:1px solid var(--bg-subtle);border-radius:var(--radius-lg);
+  padding:clamp(16px,3vw,24px);margin-bottom:18px;box-shadow:var(--shadow-md);}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:16px;
+  padding-bottom:10px;border-bottom:2px solid var(--bg-subtle);position:relative;}
+.section-title::after{content:"";position:absolute;bottom:-2px;right:0;width:50px;height:2px;background:var(--gradient-primary);}
+.section-title .count{font-family:var(--font-sans);font-size:0.78rem;font-weight:700;color:var(--text-muted);}
+
+.breadcrumb{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:10px 14px;
+  background:var(--bg-base);border:1px solid var(--bg-subtle);border-radius:var(--radius-md);
+  margin-bottom:16px;font-size:0.86rem;}
+.breadcrumb a{color:var(--primary-hover);text-decoration:none;font-weight:700;padding:2px 8px;border-radius:6px;cursor:pointer;transition:background var(--transition);}
+.breadcrumb a:hover{background:var(--bg-elevated);}
+.breadcrumb .sep{color:var(--text-muted);}
+.breadcrumb .cur{color:var(--text-primary);font-weight:800;padding:2px 8px;}
+
+.folder-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:8px;}
+.folder-card{display:flex;align-items:center;gap:10px;padding:14px;background:var(--bg-base);
+  border:1px solid var(--bg-subtle);border-radius:var(--radius-md);cursor:pointer;
+  transition:all var(--transition);text-align:right;}
+.folder-card:hover{border-color:var(--plum);transform:translateY(-3px);box-shadow:var(--shadow-md);}
+.folder-card .icon{font-size:1.7rem;flex-shrink:0;}
+.folder-card .meta{display:flex;flex-direction:column;min-width:0;}
+.folder-card .name{font-weight:700;font-size:0.9rem;word-break:break-word;}
+.folder-card .sub{font-size:0.7rem;color:var(--text-muted);}
+
+.file-list{display:flex;flex-direction:column;gap:8px;}
+.file-item{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--bg-base);
+  border:1px solid var(--bg-subtle);border-radius:var(--radius-md);transition:all var(--transition);}
+.file-item:hover{border-color:var(--plum);box-shadow:var(--shadow-md);}
+.file-icon{width:40px;height:40px;border-radius:10px;background:var(--gradient-primary);
+  display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.file-info{flex:1;min-width:0;}
+.file-name{font-size:0.9rem;font-weight:700;word-break:break-word;margin-bottom:2px;}
+.file-meta{font-size:0.72rem;color:var(--text-muted);display:flex;gap:8px;flex-wrap:wrap;}
+.file-meta .tag{background:var(--bg-surface);padding:1px 8px;border-radius:4px;}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;
+  font-family:var(--font-sans);font-size:0.85rem;font-weight:700;color:var(--text-primary);
+  background:var(--bg-elevated);border:1px solid var(--bg-subtle);border-radius:var(--radius-md);
+  cursor:pointer;text-decoration:none;transition:all var(--transition);white-space:nowrap;user-select:none;}
+.btn:hover{background:var(--bg-surface);border-color:var(--plum);transform:translateY(-2px);}
+.btn-primary{background:var(--gradient-primary);border:none;box-shadow:0 4px 16px var(--plum-glow);}
+.btn-success{background:linear-gradient(135deg,#4CAF7D 0%,#3A8D63 100%);border:none;}
+.btn-info{background:linear-gradient(135deg,#4C7DAF 0%,#3A5F8D 100%);border:none;}
+.btn-sm{padding:7px 12px;font-size:0.78rem;}
+.btn-icon{padding:8px;width:36px;height:36px;font-size:1rem;}
+.file-actions{display:flex;gap:4px;flex-shrink:0;}
+
+.empty-state{text-align:center;padding:36px 16px;color:var(--text-muted);
+  background:var(--bg-base);border:1px dashed var(--bg-subtle);border-radius:var(--radius-lg);}
+.empty-state .icon{font-size:2.4rem;margin-bottom:10px;opacity:0.5;}
+.empty-state h3{font-family:var(--font-display);font-size:1.05rem;color:var(--text-primary);margin-bottom:4px;}
+.empty-state p{font-size:0.82rem;}
+
+.flash{padding:12px 16px;border-radius:var(--radius-md);margin-bottom:16px;font-weight:700;
+  font-size:0.88rem;animation:slideIn 0.3s var(--ease);}
+@keyframes slideIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+.flash.success{color:#B8E6CC;background:var(--success-soft);border:1px solid rgba(76,175,125,0.45);}
+.flash.danger{color:#F5B7B7;background:var(--danger-soft);border:1px solid rgba(193,75,75,0.45);}
+.flash.info{color:#B8D4F5;background:var(--info-soft);border:1px solid rgba(76,125,175,0.45);}
+
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid var(--text-muted);
+  border-top-color:var(--primary-hover);border-radius:50%;animation:spin 0.7s linear infinite;vertical-align:middle;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.loading-wrap{text-align:center;padding:40px 16px;color:var(--text-muted);font-size:0.9rem;}
+
+@media (max-width:640px){
+  .file-item{flex-wrap:wrap;}
+  .file-info{flex-basis:calc(100% - 60px);}
+  .file-actions{flex-basis:100%;justify-content:flex-end;}
+}
 </style>
 </head>
 <body>
+<div class="wrapper">
 
-  <h1 class="hello">Hello World</h1>
-  <p class="subtitle">Welcome to your page — but something went wrong.</p>
+  <header class="page-header">
+    <div class="badge">🌐 Math · 2027 · Library · PDF</div>
+    <h1>Maths 2027 Files Library</h1>
+    <p>تصفّح ملفات PDF فقط من مستودع <code>lotfy-tech.github.io</code> مباشرة من GitHub.</p>
+  </header>
 
-  <div class="error-card">
-    <div class="error-code">404</div>
-    <h2 class="error-title">Page Not Found</h2>
-    <p class="error-message">
-      The page you are looking for doesn't exist or has been moved.
-      Check the URL, or head back to safety.
-    </p>
-    <div class="actions">
-      <a href="/" class="btn btn-primary">🏠 Go Home</a>
-      <button class="btn btn-secondary" onclick="history.back()">← Go Back</button>
-    </div>
+  <div id="flashArea"></div>
+
+  <div class="section">
+    <h2 class="section-title">
+      <span id="sectionTitle">📁 المحتوى</span>
+      <span class="count" id="counters"></span>
+    </h2>
+    <div class="breadcrumb" id="breadcrumb"></div>
+    <div class="folder-grid" id="folderGrid"></div>
+    <div class="file-list" id="fileList" style="margin-top:12px;"></div>
   </div>
 
-  <p class="hint">
-    Error code: <code>HTTP 404</code> · Resource not found on this server
-  </p>
+</div>
 
+<script>
+/* ============================================================
+   إعدادات — عامة، بدون توكن
+   ============================================================ */
+const GH_OWNER  = 'lotfy-tech';
+const GH_REPO   = 'lotfy-tech.github.io';
+const GH_BRANCH = 'main';   /* غيّرها إلى 'master' إن كان هذا فرعك الافتراضي */
+
+const API_BASE  = 'https://api.github.com';
+
+/* الترجمة العربية للمجلدات — تعمل في أي مستوى */
+const FOLDER_LABELS = {
+  'general': { ar: 'عام',  icon: '📚', en: 'General' },
+  'special': { ar: 'مميز', icon: '⭐', en: 'Special' },
+};
+
+/* أسماء مخفية لا تظهر للمستخدم */
+const HIDDEN_NAMES = new Set(['.github', '.git', '.gitignore', '.gitkeep']);
+
+/* ============================================================
+   أدوات مساعدة
+   ============================================================ */
+const $ = (id) => document.getElementById(id);
+const flashArea  = $('flashArea');
+const breadcrumb = $('breadcrumb');
+const folderGrid = $('folderGrid');
+const fileList   = $('fileList');
+const counters   = $('counters');
+const sectionTitle = $('sectionTitle');
+
+const state = { path: '', entries: [], loading: false };
+
+function flash(msg, type = 'info') {
+  const d = document.createElement('div');
+  d.className = 'flash ' + type;
+  d.textContent = msg;
+  flashArea.prepend(d);
+  setTimeout(() => {
+    d.style.transition = 'opacity 0.3s';
+    d.style.opacity = '0';
+    setTimeout(() => d.remove(), 300);
+  }, 5000);
+}
+function esc(s){return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function joinPath(a,b){if(!a)return b;if(!b)return a;return a.replace(/\/+$/,'')+'/'+b.replace(/^\/+/,'');}
+function encodePath(p){return String(p).split('/').filter(Boolean).map(encodeURIComponent).join('/');}
+function fmtBytes(n){
+  if(!n || n < 0) return '0 B';
+  if(n < 1024) return n + ' B';
+  if(n < 1024*1024) return (n/1024).toFixed(1) + ' KB';
+  return (n/1024/1024).toFixed(2) + ' MB';
+}
+function isHiddenEntry(entry) {
+  const name = entry && entry.name ? String(entry.name) : '';
+  if (!name) return true;
+  return name.startsWith('.') || HIDDEN_NAMES.has(name);
+}
+function filterEntries(entries) {
+  return Array.isArray(entries) ? entries.filter(e => !isHiddenEntry(e)) : [];
+}
+
+/* روابط */
+function rawUrl(path){
+  return `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/${GH_BRANCH}/${encodePath(path)}`;
+}
+function pagesUrl(path){
+  return `https://${GH_OWNER}.github.io/${encodePath(path)}`;
+}
+
+/* ============================================================
+   GitHub API — بدون توكن
+   ============================================================ */
+async function ghFetch(path) {
+  const res = await fetch(API_BASE + path, {
+    headers: {
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  let data = null;
+  try { data = await res.json(); } catch(e) {}
+  if (!res.ok) {
+    if (res.status === 403) throw new Error('تجاوزت حد الطلبات العامة على GitHub. حاول بعد قليل.');
+    const msg = (data && data.message) ? data.message : ('HTTP ' + res.status);
+    throw new Error(msg + ' (' + res.status + ')');
+  }
+  return data;
+}
+
+async function listFolder(path) {
+  const api = `/repos/${encodeURIComponent(GH_OWNER)}/${encodeURIComponent(GH_REPO)}`
+            + `/contents/${encodePath(path)}?ref=${encodeURIComponent(GH_BRANCH)}`;
+  const data = await ghFetch(api);
+  if (!Array.isArray(data)) throw new Error('المسار ليس مجلداً');
+  return filterEntries(data);
+}
+
+/* ============================================================
+   الترجمة — تعمل على أي مستوى
+   ============================================================ */
+function labelFor(folderName) {
+  const key = String(folderName).toLowerCase();
+  if (FOLDER_LABELS[key]) return FOLDER_LABELS[key];
+  return { ar: folderName, icon: '📁', en: '' };
+}
+
+/* ============================================================
+   Rendering
+   ============================================================ */
+function render() {
+  const folders = state.entries.filter(e => e.type === 'dir');
+  /* ★ PDF فقط */
+  const files   = state.entries.filter(e => e.type === 'file' && /\.pdf$/i.test(e.name));
+  counters.textContent = `${folders.length} مجلد · ${files.length} PDF`;
+
+  /* Breadcrumb */
+  breadcrumb.innerHTML = '';
+  const root = document.createElement('a');
+  root.textContent = '🏠 الجذر';
+  root.onclick = () => navigateTo('');
+  breadcrumb.appendChild(root);
+
+  if (state.path) {
+    const parts = state.path.split('/');
+    let acc = '';
+    parts.forEach((p, idx) => {
+      acc = joinPath(acc, p);
+      const sep = document.createElement('span');
+      sep.className = 'sep'; sep.textContent = '›';
+      breadcrumb.appendChild(sep);
+
+      const label = labelFor(p);
+      if (idx === parts.length - 1) {
+        const cur = document.createElement('span');
+        cur.className = 'cur'; cur.textContent = label.ar;
+        breadcrumb.appendChild(cur);
+      } else {
+        const a = document.createElement('a');
+        a.textContent = label.ar;
+        const target = acc;
+        a.onclick = () => navigateTo(target);
+        breadcrumb.appendChild(a);
+      }
+    });
+  }
+
+  /* Folders */
+  folderGrid.innerHTML = '';
+  if (!folders.length) {
+    const e = document.createElement('div');
+    e.className = 'empty-state';
+    e.style.gridColumn = '1 / -1';
+    e.innerHTML = '<div class="icon">📂</div><h3>لا توجد مجلدات</h3><p>هذا المجلد لا يحتوي على مجلدات فرعية.</p>';
+    folderGrid.appendChild(e);
+  } else {
+    folders.forEach(f => {
+      const label = labelFor(f.name);
+      const card = document.createElement('div');
+      card.className = 'folder-card';
+      card.innerHTML = `<span class="icon">${label.icon}</span>
+        <span class="meta">
+          <span class="name">${esc(label.ar)}</span>
+          <span class="sub">${label.en ? esc(label.en) + ' · ' : ''}مجلد</span>
+        </span>`;
+      card.onclick = () => navigateTo(joinPath(state.path, f.name));
+      folderGrid.appendChild(card);
+    });
+  }
+
+  /* Files — PDF فقط */
+  fileList.innerHTML = '';
+  if (!files.length) {
+    const e = document.createElement('div');
+    e.className = 'empty-state';
+    e.innerHTML = '<div class="icon">📄</div><h3>لا توجد ملفات PDF هنا</h3><p>جرّب مجلداً آخر أو ارجع إلى الجذر.</p>';
+    fileList.appendChild(e);
+  } else {
+    files.forEach(f => {
+      const fullPath = joinPath(state.path, f.name);
+
+      const row = document.createElement('div');
+      row.className = 'file-item';
+
+      const ic = document.createElement('div');
+      ic.className = 'file-icon'; ic.textContent = '📄';
+
+      const info = document.createElement('div');
+      info.className = 'file-info';
+      info.innerHTML = `<div class="file-name">${esc(f.name)}</div>
+        <div class="file-meta">
+          <span class="tag">PDF</span>
+          <span class="tag">${fmtBytes(f.size || 0)}</span>
+        </div>`;
+
+      const actions = document.createElement('div');
+      actions.className = 'file-actions';
+
+      const open = document.createElement('a');
+      open.className = 'btn btn-sm btn-icon btn-info';
+      open.textContent = '👁️';
+      open.title = 'عرض الملف في تاب جديد';
+      open.href = rawUrl(fullPath);
+      open.target = '_blank';
+      open.rel = 'noopener';
+
+      const dl = document.createElement('a');
+      dl.className = 'btn btn-sm btn-icon btn-success';
+      dl.textContent = '⬇️';
+      dl.title = 'تنزيل الملف';
+      dl.href = rawUrl(fullPath);
+      dl.setAttribute('download', f.name);
+
+      actions.appendChild(open);
+      actions.appendChild(dl);
+
+      row.appendChild(ic);
+      row.appendChild(info);
+      row.appendChild(actions);
+      fileList.appendChild(row);
+    });
+  }
+
+  /* عنوان القسم */
+  if (!state.path) sectionTitle.textContent = '📁 المحتوى';
+  else {
+    const last = state.path.split('/').pop();
+    const label = labelFor(last);
+    sectionTitle.textContent = `${label.icon} ${label.ar}`;
+  }
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+async function navigateTo(path) {
+  if (state.loading) return;
+
+  if (path && path.split('/').some(seg => seg.startsWith('.'))) {
+    flash('⚠️ هذا المجلد مخفي.', 'info');
+    path = '';
+  }
+
+  state.loading = true;
+  folderGrid.innerHTML = '<div class="loading-wrap" style="grid-column:1/-1;"><span class="spinner"></span> جارٍ التحميل…</div>';
+  fileList.innerHTML = '';
+
+  try {
+    const entries = await listFolder(path);
+    state.entries = entries;
+    state.path = path;
+    render();
+    try { history.replaceState(null, '', '#' + encodeURIComponent(path || '/')); } catch(e) {}
+  } catch (err) {
+    flash('❌ ' + err.message, 'danger');
+    folderGrid.innerHTML = '';
+    fileList.innerHTML = '';
+    const e = document.createElement('div');
+    e.className = 'empty-state';
+    e.innerHTML = `<div class="icon">⚠️</div><h3>تعذّر تحميل المحتوى</h3><p>${esc(err.message)}</p>`;
+    fileList.appendChild(e);
+  } finally {
+    state.loading = false;
+  }
+}
+
+/* ============================================================
+   Boot
+   ============================================================ */
+(async function boot() {
+  let path = '';
+  try { if (location.hash) path = decodeURIComponent(location.hash.slice(1)); } catch(e) {}
+  if (path === '/') path = '';
+  await navigateTo(path);
+})();
+</script>
 </body>
 </html>
